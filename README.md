@@ -6,6 +6,8 @@ Short for yabai, "whoa" in Japanese.
 
 A universal database terminal client. 
 
+<img height="500" src="https://user-images.githubusercontent.com/1470297/91042907-8f6de380-e5e0-11ea-9a34-e4a9500f9378.gif" />
+
 
 ## Installation
 
