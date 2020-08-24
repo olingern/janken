@@ -1,6 +1,6 @@
 # yaba
 
-Short for yabai, "whoa" in Japanese.
+Short for yabai, "whoa" in Japanese. Name will change one day. 
 
 **Version**: 0.0.0 (_hardly usable_)
 
@@ -14,9 +14,11 @@ I recommend not using this. Version 0.1.0 will be a usuable release.
 
 ## Installation
 
-```bash
-npm install yaba
-```
+1. Clone this repository
+2. cd to directory and `npm install`
+3. npm link
+
+You can now run `yaba`
 
 ## Setup
 
