@@ -1,0 +1,81 @@
+{
+  "name": "yaba",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Nick Olinger @olingern",
+  "bin": {
+    "yaba": "./bin/run"
+  },
+  "bugs": "https://github.com/olingern/yaba/issues",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "ink": "^3.0.3",
+    "ink-select-input": "^4.0.0",
+    "ink-text-input": "^4.0.0",
+    "mysql": "^2.18.1",
+    "pg": "^8.3.0",
+    "react": "^16.13.1",
+    "yargs": "^15.4.1"
+  },
+  "devDependencies": {
+    "@types/execa": "^2.0.0",
+    "@types/mysql": "^2.15.15",
+    "@types/node": "^10.17.28",
+    "@types/pg": "^7.14.4",
+    "@types/react": "^16.9.45",
+    "@types/yargs": "^15.0.5",
+    "ava": "^3.11.1",
+    "eslint": "^5.16.0",
+    "execa": "^4.0.3",
+    "ink-testing-library": "^2.0.1",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.52",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.0.1-rc"
+  },
+  "engines": {
+    "node": ">=12.4.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/olingern/yaba",
+  "keywords": [],
+  "main": "lib/index.js",
+  "repository": "olingern/yaba",
+  "scripts": {
+    "test": "ava",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "format": "prettier --write './src/**/*.{ts,tsx}'"
+  },
+  "types": "lib/index.d.ts",
+  "ava": {
+    "snapshotDir": "./test/snapshots",
+    "files": [
+      "./test/integration/**/*",
+      "./test/unit/**/*",
+      "!./test/integration/commands/helpers.ts"
+    ],
+    "extensions": [
+      "ts",
+      "tsx"
+    ],
+    "concurrency": 1,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "verbose": true,
+    "require": [
+      "ts-node/register"
+    ],
+    "nodeArguments": [
+      "--trace-deprecation",
+      "--napi-modules"
+    ],
+    "cache": false,
+    "environmentVariables": {
+      "test_pg": "postgres://postgres:postgres@localhost/pgdb"
+    }
+  }
+}

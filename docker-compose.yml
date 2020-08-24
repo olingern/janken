@@ -1,0 +1,23 @@
+version: '3'
+services:
+#    mysql:
+#       image: mysql
+#       ports:
+#       - "3306:3306"  
+#       environment:
+#          - MYSQL_ROOT_PASSWORD=root
+#          - MYSQL_USER=user
+#          - MYSQL_PASSWORD=pass
+#          - MYSQL_DATABASE=mysqldb
+
+   postgres:
+      image: postgres:12.3-alpine
+      environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=pgdb
+            - PGDATA=/postgres-data
+      ports:
+            - 5432:5432
+      volumes:
+            - ./test/docker/postgres/init:/docker-entrypoint-initdb.d

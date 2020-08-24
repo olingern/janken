@@ -1,0 +1,27 @@
+{
+  "exclude": ["node_modules", "./src/test/**/*"],
+  "include": ["./src/**/*"],
+  "compilerOptions": {
+    "declaration": false,
+    "lib": ["es2020"],
+    "module": "commonjs",
+    "outDir": "lib",
+    "strict": false,
+    "target": "es2019",
+    "baseUrl": ".",
+    "noUnusedLocals": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "strictNullChecks": false,
+    "resolveJsonModule": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "noUnusedParameters": false,
+    "jsx": "react",
+    "noStrictGenericChecks": true,
+    "skipLibCheck": true
+  }
+}
