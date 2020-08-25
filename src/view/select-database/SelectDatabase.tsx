@@ -12,6 +12,7 @@ export const SelectDatabase = (): JSX.Element => {
 
   const handleSelect = async (item: ISelectInput) => {
     const database = getDatabaseProviderInstance(item.value);
+    await database.connect()
     dispatch({ type: APP_ACTIONS.SELECT_CONNECTION, payload: database });
   };
 
