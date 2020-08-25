@@ -32,7 +32,7 @@ export function formatQuestion(question: string) {
  * @param regex 
  */
 export function askQuestion(readLine: any, question: string, regex: RegExp): Promise<string> {
-  return new Promise((res, rej) => {
+  return new Promise((res, _rej) => {
     readLine.question(formatQuestion(question), function (ans) {
       if (regex.test(ans)) {
         res(ans)
@@ -43,7 +43,7 @@ export function askQuestion(readLine: any, question: string, regex: RegExp): Pro
   });
 }
 
-export const handler = async function (argv: any) {
+export const handler = async function (_argv: any) {
 
   const rl = readline.createInterface({
     input: process.stdin,

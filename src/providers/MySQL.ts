@@ -47,7 +47,7 @@ export class MySQL implements IDatabaseProvider {
       ' order by table_name, ordinal_position;';
 
     return new Promise((res, rej) => {
-      this.connection?.query(query, [`${this.dbName}`, `${tableName}`], function (err, results, fields) {
+      this.connection?.query(query, [`${this.dbName}`, `${tableName}`], function (err, results, _fields) {
         if (err) {
           rej(err);
         }
@@ -67,7 +67,7 @@ export class MySQL implements IDatabaseProvider {
         `;
 
     return new Promise((res, rej) => {
-      this.connection?.query(s, function (err, results, fields) {
+      this.connection?.query(s, function (err, results, _fields) {
         if (err) {
           rej(err);
         }
@@ -91,7 +91,7 @@ export class MySQL implements IDatabaseProvider {
     const query = `SELECT COUNT(*) as count FROM ${tableName};`;
 
     return new Promise((res, rej) => {
-      this.connection?.query(query, function (err, results, fields) {
+      this.connection?.query(query, function (err, results, _fields) {
         if (err) {
           rej(err);
         }
@@ -113,7 +113,7 @@ export class MySQL implements IDatabaseProvider {
     const query = `SELECT * FROM ${tableName};`;
 
     return new Promise((res, rej) => {
-      this.connection?.query(query, async (err, results: Array<object>, fields) => {
+      this.connection?.query(query, async (err, results: Array<object>, _fields) => {
         if (err) {
           rej(err);
         }

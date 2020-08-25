@@ -25,7 +25,7 @@ export class PostgreSQL implements IDatabaseProvider {
       });
       this.pool
         .connect()
-        .then((client) => {
+        .then(() => {
           res('connected');
         })
         .catch((e) => {
@@ -51,7 +51,7 @@ export class PostgreSQL implements IDatabaseProvider {
     });
   }
 
-  async getTotalTableCount(tableName: string): Promise<number> {
+  async getTotalTableCount(_tableName: string): Promise<number> {
     throw new Error('Not yet implemented');
     return 1;
   }

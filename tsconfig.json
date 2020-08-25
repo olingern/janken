@@ -19,7 +19,7 @@
     "noImplicitAny": false,
     "noImplicitReturns": false,
     "noImplicitThis": false,
-    "noUnusedParameters": false,
+    "noUnusedParameters": true,
     "jsx": "react",
     "noStrictGenericChecks": true,
     "skipLibCheck": true

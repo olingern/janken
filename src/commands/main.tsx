@@ -32,7 +32,7 @@ export function transformConfigToItems(connections: IConfig[]): IConfigConnectio
  *
  * @param argv
  */
-export const handler = function (argv: any) {
+export const handler = function (_argv: any) {
   const connections = loadConfigSync();
 
   if (connections === null || connections.length < 1) {

@@ -168,7 +168,7 @@ export const DatabaseView: React.FC = () => {
   /**
    * Handle user input
    */
-  useInput(async (input, key) => {
+  useInput(async (_input, key) => {
     if (key.escape) {
       const payload = { tableSelection: true, tableRows: false };
       dbViewDispatch({ type: 'SET_DISPLAY', payload });
