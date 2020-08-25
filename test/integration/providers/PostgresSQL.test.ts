@@ -5,11 +5,12 @@ import test from 'ava';
 
 import { PostgreSQL } from '../../../src/providers/PostgresSQL';
 
+const pgUrl = process.env.test_pg as string;
 /**
  * Integration: Get Postgres table listing
  */
 test('Can connect and get table listing', async (t) => {
-  const postgres = new PostgreSQL(process.env.test_pg);
+  const postgres = new PostgreSQL(pgUrl);
   await postgres.connect()
   const tables = await postgres.getTableList()
   
@@ -28,7 +29,7 @@ test('Can connect and get table listing', async (t) => {
 });
 
 test('Can get data from table', async (t) => {
-  const postgres = new PostgreSQL(process.env.test_pg);
+  const postgres = new PostgreSQL(pgUrl);
   await postgres.connect()
   const postData = await postgres.getAllFromTable('posts', 0);
 

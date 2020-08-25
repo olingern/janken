@@ -12,7 +12,7 @@ export const SelectDatabase = (): JSX.Element => {
   useEffect(() => {});
 
   const handleSelect = async (item: Item): Promise<void> => {
-    const connectionString : string = item.value as string;
+    const connectionString: string = item.value as string;
     const database = getDatabaseProviderInstance(connectionString);
     await database.connect();
     dispatch({ type: APP_ACTIONS.SELECT_CONNECTION, payload: database });

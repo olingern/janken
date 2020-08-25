@@ -19,7 +19,7 @@ export function removeConfigSync() {
  *  
  * @param outputStream output stream
  */
-export function handleStdout(outputStream: stream.Readable) {
+export function handleStdout(outputStream: stream.Readable): Promise<string> {
     return new Promise((res, _rej) => {
         outputStream.on('data', (data) => res(data.toString()?.trim()))
     })
@@ -28,7 +28,7 @@ export function handleStdout(outputStream: stream.Readable) {
 export const testConfig = [
     {
         connectionName: "Test",
-        connectionString: "postgres://user:pass@localhost/db"
+        connectionString: "postgres://postgres:postgres@localhost/pgdb"
     }
 ]
 
@@ -36,10 +36,13 @@ export function writeTestConfigSync() {
     writeConfigSync(testConfig)
 }
 
-/**
- * Credit: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
- * @param ms 
- */
-export function sleep(ms: number) {
-    return new Promise(res => setTimeout(res, ms));
+export const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+export const keys = {
+    up: '\x1B\x5B\x41',
+    down: '\x1B\x5B\x42',
+    left: '\x1B\x5B\x44',
+    right: '\x1B\x5B\x43',
+    enter: '\x0D',
+    space: '\x20'
 }

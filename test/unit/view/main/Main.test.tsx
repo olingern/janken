@@ -39,6 +39,7 @@ test('renders connection items', t => {
 
     // Ensure "Test" label is visible
     t.true(lastFrame.indexOf(label) !== -1)
+    t.is(err, undefined)
 
     // Save snapshot
     t.snapshot(component)
