@@ -21,6 +21,7 @@ export class PostgreSQL implements IDatabaseProvider {
       this.pool = new Pool({
         connectionString: this.connectionString,
         connectionTimeoutMillis: 1000,
+        keepAlive: true
       });
       this.pool
         .connect()
@@ -34,7 +35,6 @@ export class PostgreSQL implements IDatabaseProvider {
   }
 
   async getTableList(): Promise<Item[]> {
-    await this.connect();
     const s = `
         SELECT table_name 
         FROM information_schema.tables 
@@ -57,8 +57,6 @@ export class PostgreSQL implements IDatabaseProvider {
   }
 
   async getAllFromTable(tableName: string, offset: number): Promise<IDatabaseGetAllFromTable> {
-    // TODO: figure out why connection is dropped
-    await this.connect();
     const query = formatPostgresQuery(`SELECT * FROM %I OFFSET ${offset} LIMIT 1000`, [tableName])
     const result = await this.pool.query(query);
     return {
