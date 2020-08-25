@@ -21,7 +21,7 @@ export class PostgreSQL implements IDatabaseProvider {
       this.pool = new Pool({
         connectionString: this.connectionString,
         connectionTimeoutMillis: 1000,
-        keepAlive: true
+        keepAlive: true,
       });
       this.pool
         .connect()
@@ -57,7 +57,7 @@ export class PostgreSQL implements IDatabaseProvider {
   }
 
   async getAllFromTable(tableName: string, offset: number): Promise<IDatabaseGetAllFromTable> {
-    const query = formatPostgresQuery(`SELECT * FROM %I OFFSET ${offset} LIMIT 1000`, [tableName])
+    const query = formatPostgresQuery(`SELECT * FROM %I OFFSET ${offset} LIMIT 1000`, [tableName]);
     const result = await this.pool.query(query);
     return {
       columns: result.fields.map((field) => field.name),

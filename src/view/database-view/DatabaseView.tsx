@@ -37,7 +37,13 @@ const initialDatabaseViewState: IDatabaseViewState = {
   tables: [],
 };
 
-async function getDataFromTable(provider: IDatabaseProvider, table: string, page: number, lower: number, upper: number) {
+async function getDataFromTable(
+  provider: IDatabaseProvider,
+  table: string,
+  page: number,
+  lower: number,
+  upper: number,
+) {
   const tableQuery = await provider.getAllFromTable(table, page * recordsPerPage);
 
   const selectedTable = {
@@ -169,8 +175,8 @@ export const DatabaseView: React.FC = () => {
     }
 
     /**
-    * HANDLE RIGHT ARROW FOR SCROLLING THROUGH COLUMNS
-    */
+     * HANDLE RIGHT ARROW FOR SCROLLING THROUGH COLUMNS
+     */
     if (key.rightArrow && dbViewState.display.tableRows) {
       if (dbViewState.columnBounds.upper < dbViewState.allHeadings.length - 1) {
         handleBounds(dbViewState.columnBounds.lower + 1, dbViewState.columnBounds.upper + 1);
@@ -223,8 +229,13 @@ export const DatabaseView: React.FC = () => {
         };
         dbViewDispatch({ type: 'SET_SHOWN_ROWS', payload: rowPayload });
       } else {
-        getDataFromTable(state.databaseProvider, dbViewState.selectedTable.name, newPage, dbViewState.columnBounds.lower, dbViewState.columnBounds.upper)
-
+        getDataFromTable(
+          state.databaseProvider,
+          dbViewState.selectedTable.name,
+          newPage,
+          dbViewState.columnBounds.lower,
+          dbViewState.columnBounds.upper,
+        );
       }
     }
   });

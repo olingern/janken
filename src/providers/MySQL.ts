@@ -111,8 +111,8 @@ export class MySQL implements IDatabaseProvider {
     }
 
     // TODO: SQL injection problem here. In theory,
-    //       tables from the database schema will only ever 
-    //       reach this point, but a bad actor could exploit 
+    //       tables from the database schema will only ever
+    //       reach this point, but a bad actor could exploit
     //       stdin. Prepared statements are not an option.
     const query = `SELECT * FROM ${tableName};`;
 
