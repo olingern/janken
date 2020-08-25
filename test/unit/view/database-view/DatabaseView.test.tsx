@@ -1,6 +1,4 @@
-// src/App.test.js
 import test from 'ava';
-import React from 'react';
 
 import { getNewBounds } from '../../../../src/view/database-view/DatabaseView';
 
