@@ -3,10 +3,6 @@ import { createPool, Pool, PoolConnection } from 'mysql';
 
 import { IDatabaseGetAllFromTable, IDatabaseProvider } from './shared';
 
-interface IMySQLTableList {
-  table_name: string;
-}
-
 export class MySQL implements IDatabaseProvider {
   private pool: Pool;
   public connection: PoolConnection | undefined;

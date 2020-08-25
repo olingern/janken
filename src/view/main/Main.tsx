@@ -39,7 +39,7 @@ export const MainComponentContextWrapped = (props: IMainComponentProps) => {
  * @param props
  */
 export const MainComponent = (props: IMainComponentProps) => {
-  const { state, dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
 
   useEffect(() => {
     dispatch({

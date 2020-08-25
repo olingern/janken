@@ -9,7 +9,7 @@
     "strict": false,
     "target": "es2019",
     "baseUrl": ".",
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "strictNullChecks": false,
