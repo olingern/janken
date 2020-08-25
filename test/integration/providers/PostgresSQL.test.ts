@@ -26,3 +26,13 @@ test('Can connect and get table listing', async (t) => {
   // should exist
   t.true(postsExists)
 });
+
+test('Can get data from table', async (t) => {
+  const postgres = new PostgreSQL(process.env.test_pg);
+  await postgres.connect()
+  const postData = await postgres.getAllFromTable('posts', 0);
+
+  // TODO: write some sort of table creation / seeding to make this
+  // more precise.
+  t.true(postData.records.length > 0)
+});
