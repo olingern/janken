@@ -118,7 +118,7 @@ export class MySQL implements IDatabaseProvider {
           rej(err);
         }
 
-        let columns = [];
+        let columns: string[] = [];
         let response: IDatabaseGetAllFromTable = { columns: [], records: [] };
 
         if (results && results.length > 0) {

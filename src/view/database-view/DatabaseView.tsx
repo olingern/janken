@@ -44,7 +44,8 @@ async function getDataFromTable(
   lower: number,
   upper: number,
 ) {
-  const tableQuery = await provider.getAllFromTable(table, page * recordsPerPage);
+
+  const tableQuery = await provider!.getAllFromTable(table, page * recordsPerPage);
 
   const selectedTable = {
     headings: Array.from(tableQuery.columns),
@@ -127,10 +128,15 @@ export const DatabaseView: React.FC = () => {
    *
    */
   useEffect(() => {
+
+    if (!state.databaseProvider) {
+      exit(new Error("Database provider not defined"))
+    }
+
     const fetchTables = async () => {
-      let tables = [];
+      let tables: Item[] = [];
       try {
-        tables = await state.databaseProvider.getTableList();
+        tables = await state.databaseProvider!.getTableList();
       } catch (e) {
         // TODO: Provide error display area inside of App. Right now,
         //       error will not be logged unless we exit the app.
@@ -230,7 +236,7 @@ export const DatabaseView: React.FC = () => {
         dbViewDispatch({ type: 'SET_SHOWN_ROWS', payload: rowPayload });
       } else {
         getDataFromTable(
-          state.databaseProvider,
+          state.databaseProvider!,
           dbViewState.selectedTable.name,
           newPage,
           dbViewState.columnBounds.lower,
@@ -246,7 +252,7 @@ export const DatabaseView: React.FC = () => {
    * @param item
    */
   const handleSelect = async (item: Item) => {
-    const tableQuery = await state.databaseProvider.getAllFromTable(item.label, 0);
+    const tableQuery = await state.databaseProvider!.getAllFromTable(item.label, 0);
 
     const selectedTable = {
       allRows: tableQuery.records,

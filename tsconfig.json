@@ -12,7 +12,7 @@
     "noUnusedLocals": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "resolveJsonModule": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,

@@ -26,7 +26,7 @@ interface IAppState {
   connectionStrings: ISelectInput[];
   connectionIdx: number;
   component: JSX.Element;
-  databaseProvider: IDatabaseProvider;
+  databaseProvider: IDatabaseProvider | null;
 }
 
 /**
