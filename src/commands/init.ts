@@ -2,7 +2,7 @@ import * as init from '../lib/init';
 
 export const command = 'init';
 
-export const describe = 'bee boop';
+export const describe = 'Initialize the configuration file';
 
 export const builder = {};
 
@@ -20,10 +20,25 @@ function green(msg: string) {
   return `\u001b[32m${msg}\u001B[39m`
 }
 
-function askQuestion(readLine: any, question: string): Promise<string> {
+export function formatQuestion(question: string) {
+  return `${red("•")} ${cyan(question)}: `
+}
+
+/**
+ * Recursively asks a question until the correct answer is provided
+ * 
+ * @param readLine 
+ * @param question 
+ * @param regex 
+ */
+export function askQuestion(readLine: any, question: string, regex: RegExp): Promise<string> {
   return new Promise((res, rej) => {
-    readLine.question(`${red("•")} ${cyan(question)}: `, function (name) {
-      res(name);
+    readLine.question(formatQuestion(question), function (ans) {
+      if (regex.test(ans)) {
+        res(ans)
+      } else {
+        res(askQuestion(readLine, question, regex))
+      }
     });
   });
 }
@@ -35,11 +50,11 @@ export const handler = async function (argv: any) {
     output: process.stdout,
   });
 
-  const connectionName = await askQuestion(rl, "Name of this connection");
-  const connectionString = await askQuestion(rl, 'Database connection string');
+  const connectionName = await askQuestion(rl, "Name of this connection", /^.{1,}$/);
+  const connectionString = await askQuestion(rl, 'Database connection string', /[postgres|mysql]+:\/\/.*:.*@\w+\/\w+/);
 
   if (init.configExistsSync()) {
-    const ans = await askQuestion(rl, 'File already exists. Overwrite? (y/n)');
+    const ans = await askQuestion(rl, 'File already exists. Overwrite? (y/n)', /[y|n]/);
     if (ans === 'n') {
       process.stdout.write('- Okay, exiting.\n');
       process.exit(0);
