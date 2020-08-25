@@ -1,3 +1,4 @@
+import { Item } from 'ink-select-input/build/SelectInput';
 import React, { createContext, Dispatch, useReducer } from 'react';
 
 import { IDatabaseProvider } from '../providers/shared';
@@ -13,10 +14,8 @@ export enum APP_ACTIONS {
   SELECT_CONNECTION = 'SELECT_CONNECTION',
 }
 
-export interface ISelectInput {
-  key?: string;
+export interface ISelectInput extends Item {
   idx: number;
-  label: string;
   value: string;
 }
 

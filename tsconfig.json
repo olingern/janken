@@ -6,7 +6,7 @@
     "lib": ["es2020"],
     "module": "commonjs",
     "outDir": "lib",
-    "strict": false,
+    "strict": true,
     "target": "es2019",
     "baseUrl": ".",
     "noUnusedLocals": true,
