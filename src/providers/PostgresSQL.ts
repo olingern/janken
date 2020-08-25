@@ -1,6 +1,7 @@
 import { Item } from 'ink-select-input/build/SelectInput';
 import { Pool } from 'pg';
 
+import { formatPostgresQuery } from './format';
 import { IDatabaseGetAllFromTable, IDatabaseProvider } from './shared';
 
 interface IPostgresTableList {
@@ -58,13 +59,8 @@ export class PostgreSQL implements IDatabaseProvider {
   async getAllFromTable(tableName: string, offset: number): Promise<IDatabaseGetAllFromTable> {
     // TODO: figure out why connection is dropped
     await this.connect();
-    
-    
-    // TODO: SQL injection problem here. In theory,
-    //       tables from the database schema will only ever 
-    //       reach this point, but a bad actor could exploit 
-    //       stdin. Prepared statements are not an option.
-    const result = await this.pool.query(`SELECT * FROM ${tableName} OFFSET ${offset} LIMIT 1000`);
+    const query = formatPostgresQuery(`SELECT * FROM %I OFFSET ${offset} LIMIT 1000`, [tableName])
+    const result = await this.pool.query(query);
     return {
       columns: result.fields.map((field) => field.name),
       records: result.rows,
