@@ -3,6 +3,8 @@
 Short for yabai, "whoa" in Japanese. Name will change one day. 
 
 [![Build Status](https://github.com/olingern/yaba/workflows/test/badge.svg)](https://github.com/olingern/yaba/actions)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+
 
 **Version**: 0.0.0 (_hardly usable_)
 
