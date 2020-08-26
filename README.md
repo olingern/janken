@@ -20,20 +20,52 @@ I recommend not using this. Version 0.1.0 will be a usuable release.
 
 1. Clone this repository
 2. cd to directory and `npm install`
-3. npm link
+3. Build the project: `npm run build`
+4. Link compiled code to `yaba` by running:`npm link`
 
 You can now run `yaba`
 
 ## Setup
 
+
+<br />
+
+![yaba_init2_000](https://user-images.githubusercontent.com/1470297/91254373-4167f580-e730-11ea-9037-30f6d22db2a6.png)
+
+<br />
+
+
 ```
 yaba init
 ```
 
+1. Name your connecton
+2. Enter your connection string in this form:
+  - `provider://username:passsword@host/database`
+  - Example: `postgres://pguser:pgPA$$@localhost/mydb`
+
+### Currently supported databases
+
+- PostgreSQL
+- MySQL
+
 ## Configuration
 
-Yaba's configuration file is stored in your home directory under `.yaba`. Example:
+Yaba's configuration file is stored in your home directory under `.yaba`. 
+
+Example:
 
 ```
 /home/user/.yaba
+```
+
+An example of what is currently stored in the configuration file:
+
+```json
+[
+  {
+    "connectionName": "PG",
+    "connectionString": "postgres://postgres:postgres@localhost/pgdb"
+  }
+]
 ```
