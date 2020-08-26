@@ -1,8 +1,8 @@
-# yaba
+# janken
 
-Short for yabai, "whoa" in Japanese. Name will change one day. 
+Because rock, paper, scissors is just as serious as your database.
 
-[![Build Status](https://github.com/olingern/yaba/workflows/test/badge.svg)](https://github.com/olingern/yaba/actions)
+[![Build Status](https://github.com/olingern/janken/workflows/test/badge.svg)](https://github.com/olingern/janken/actions)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 
@@ -10,10 +10,10 @@ Short for yabai, "whoa" in Japanese. Name will change one day.
 
 A universal database terminal client built with [Ink](https://github.com/vadimdemedes/ink).
 
-Until this [TODO](https://github.com/olingern/yaba/blob/master/src/providers/PostgresSQL.ts#L63) is solved, 
+Until this [TODO](https://github.com/olingern/janken/blob/master/src/providers/PostgresSQL.ts#L63) is solved, 
 I recommend not using this. Version 0.1.0 will be a usuable release.
 
-<img height="500" src="https://user-images.githubusercontent.com/1470297/91042907-8f6de380-e5e0-11ea-9a34-e4a9500f9378.gif" />
+![janken_demo](https://user-images.githubusercontent.com/1470297/91255517-f0a5cc00-e732-11ea-9bc8-ab30b015aa40.gif)
 
 
 ## Installation
@@ -21,22 +21,22 @@ I recommend not using this. Version 0.1.0 will be a usuable release.
 1. Clone this repository
 2. cd to directory and `npm install`
 3. Build the project: `npm run build`
-4. Link compiled code to `yaba` by running:`npm link`
+4. Link compiled code to `janken` by running:`npm link`
 
-You can now run `yaba`
+You can now run `janken`
 
 ## Setup
 
 
 <br />
 
-![yaba_init2_000](https://user-images.githubusercontent.com/1470297/91254373-4167f580-e730-11ea-9037-30f6d22db2a6.png)
+![janken_init](https://user-images.githubusercontent.com/1470297/91255224-4e85e400-e732-11ea-978b-5fb6e82fa44e.png)
 
 <br />
 
 
 ```
-yaba init
+janken init
 ```
 
 1. Name your connecton
@@ -51,12 +51,12 @@ yaba init
 
 ## Configuration
 
-Yaba's configuration file is stored in your home directory under `.yaba`. 
+janken's configuration file is stored in your home directory under `.janken`. 
 
 Example:
 
 ```
-/home/user/.yaba
+/home/user/.janken
 ```
 
 An example of what is currently stored in the configuration file:

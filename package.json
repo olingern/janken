@@ -1,12 +1,12 @@
 {
-  "name": "yaba",
+  "name": "janken",
   "version": "0.0.0",
   "license": "MIT",
   "author": "Nick Olinger @olingern",
   "bin": {
-    "yaba": "./bin/run"
+    "janken": "./bin/run"
   },
-  "bugs": "https://github.com/olingern/yaba/issues",
+  "bugs": "https://github.com/olingern/janken/issues",
   "dependencies": {
     "chalk": "^4.1.0",
     "ink": "^3.0.3",
@@ -41,10 +41,10 @@
     "/bin",
     "/lib"
   ],
-  "homepage": "https://github.com/olingern/yaba",
+  "homepage": "https://github.com/olingern/janken",
   "keywords": [],
   "main": "lib/index.js",
-  "repository": "olingern/yaba",
+  "repository": "olingern/janken",
   "scripts": {
     "test": "ava",
     "build": "tsc",
