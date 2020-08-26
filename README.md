@@ -41,8 +41,8 @@ yaba init
 
 1. Name your connecton
 2. Enter your connection string in this form:
-  - `provider://username:passsword@host/database`
-  - Example: `postgres://pguser:pgPA$$@localhost/mydb`
+    - `provider://username:passsword@host/database`
+    - Example: `postgres://pguser:pgPA$$@localhost/mydb`
 
 ### Currently supported databases
 
