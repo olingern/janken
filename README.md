@@ -1,6 +1,6 @@
 # janken
 
-Because rock, paper, scissors is just as serious as your database.
+Because [rock, paper, scissors](https://jet.fandom.com/wiki/Janken) is just as serious as your database.
 
 [![Build Status](https://github.com/olingern/janken/workflows/test/badge.svg)](https://github.com/olingern/janken/actions)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
