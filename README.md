@@ -2,6 +2,8 @@
 
 Short for yabai, "whoa" in Japanese. Name will change one day. 
 
+[![Build Status](https://github.com/olingern/yaba/workflows/test/badge.svg)](https://github.com/olingern/yaba/actions)
+
 **Version**: 0.0.0 (_hardly usable_)
 
 A universal database terminal client built with [Ink](https://github.com/vadimdemedes/ink).
