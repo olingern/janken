@@ -44,7 +44,6 @@ async function getDataFromTable(
   lower: number,
   upper: number,
 ) {
-
   const tableQuery = await provider!.getAllFromTable(table, page * recordsPerPage);
 
   const selectedTable = {
@@ -128,13 +127,13 @@ export const DatabaseView: React.FC = () => {
    *
    */
   useEffect(() => {
-
-    if (!state.databaseProvider) {
-      exit(new Error("Database provider not defined"))
-    }
-
     const fetchTables = async () => {
       let tables: Item[] = [];
+
+      if (!state.databaseProvider || state.databaseProvider === null) {
+        return;
+      }
+
       try {
         tables = await state.databaseProvider!.getTableList();
       } catch (e) {
