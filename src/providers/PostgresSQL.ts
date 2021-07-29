@@ -1,5 +1,5 @@
-import { Item } from 'ink-select-input/build/SelectInput';
 import { Pool } from 'pg';
+import { ListItem } from 'src/types/ListItem';
 
 import { formatPostgresQuery } from './format';
 import { IDatabaseGetAllFromTable, IDatabaseProvider } from './shared';
@@ -34,7 +34,7 @@ export class PostgreSQL implements IDatabaseProvider {
     });
   }
 
-  async getTableList(): Promise<Item[]> {
+  async getTableList(): Promise<ListItem[]> {
     const s = `
         SELECT table_name 
         FROM information_schema.tables 

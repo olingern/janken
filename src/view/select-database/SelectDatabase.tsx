@@ -1,7 +1,7 @@
 import { Box, Text } from 'ink';
 import SelectInput from 'ink-select-input';
-import { Item } from 'ink-select-input/build/SelectInput';
 import React, { useContext, useEffect } from 'react';
+import { ListItem } from 'src/types/ListItem';
 
 import { getDatabaseProviderInstance } from '../../providers';
 import { APP_ACTIONS, AppContext } from '../context';
@@ -11,7 +11,7 @@ export const SelectDatabase = (): JSX.Element => {
 
   useEffect(() => {});
 
-  const handleSelect = async (item: Item): Promise<void> => {
+  const handleSelect = async (item: ListItem): Promise<void> => {
     const connectionString: string = item.value as string;
     const database = getDatabaseProviderInstance(connectionString);
     await database.connect();
@@ -23,7 +23,15 @@ export const SelectDatabase = (): JSX.Element => {
       <Box paddingBottom={1}>
         <Text>Connections</Text>
       </Box>
-      <SelectInput items={state.connectionStrings} onSelect={handleSelect} />
+      <SelectInput
+        items={state.connectionStrings.map((c) => {
+          return {
+            label: c.idx.toString(),
+            value: c.value,
+          };
+        })}
+        onSelect={handleSelect}
+      />
     </Box>
   );
 };

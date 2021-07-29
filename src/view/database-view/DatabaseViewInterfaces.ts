@@ -1,4 +1,4 @@
-import { Item } from 'ink-select-input/build/SelectInput';
+import { ListItem } from 'src/types/ListItem';
 
 export interface IDatabaseViewStateDisplay {
   tableRows: boolean;
@@ -25,7 +25,7 @@ export interface IDatabaseViewState {
   display: IDatabaseViewStateDisplay;
   selectedTable: IDatabaseViewStateSelectedTable;
   shownColumns: string[];
-  tables: Item[];
+  tables: ListItem[];
 }
 
 export interface IDatabaseSelectTablePayload {
@@ -41,7 +41,7 @@ export interface IDatabaseSetShowColumnsPayload {
 }
 
 export type IDatabaseViewAction =
-  | { type: 'SET_TABLES'; payload: Item[] }
+  | { type: 'SET_TABLES'; payload: ListItem[] }
   | { type: 'SELECT_TABLE'; payload: IDatabaseSelectTablePayload }
   | { type: 'SET_DISPLAY'; payload: IDatabaseViewStateDisplay }
   | {

@@ -1,6 +1,6 @@
 import { Box, render } from 'ink';
-import { Item } from 'ink-select-input/build/SelectInput';
 import React, { useContext, useEffect } from 'react';
+import { ListItem } from 'src/types/ListItem';
 
 import { APP_ACTIONS, AppContext, AppProvider } from '../context';
 
@@ -9,7 +9,7 @@ import { APP_ACTIONS, AppContext, AppProvider } from '../context';
  * passed into Main
  */
 interface IMainComponentProps {
-  connectionItems: Item[];
+  connectionItems: ListItem[];
 }
 
 /**
