@@ -1,5 +1,5 @@
-import { Item } from 'ink-select-input/build/SelectInput';
 import { createPool, Pool, PoolConnection } from 'mysql';
+import { ListItem } from 'src/types/ListItem';
 
 import { IDatabaseGetAllFromTable, IDatabaseProvider } from './shared';
 
@@ -61,7 +61,7 @@ export class MySQL implements IDatabaseProvider {
     });
   }
 
-  async getTableList(): Promise<Item[]> {
+  async getTableList(): Promise<ListItem[]> {
     const s = `
         SELECT TABLE_NAME FROM information_schema.tables WHERE table_schema = '${this.dbName}';
         `;

@@ -1,4 +1,4 @@
-import { Item } from 'ink-select-input/build/SelectInput';
+import { ListItem } from 'src/types/ListItem';
 
 export interface IDatabaseGetAllFromTable {
   columns: Array<string>;
@@ -10,5 +10,5 @@ export interface IDatabaseProvider {
   // getTableColumns(tableName: string): Promise<string[]>;
   getAllFromTable(tableName: string, offset: number): Promise<IDatabaseGetAllFromTable>;
   getTotalTableCount(tableName: string): Promise<number>;
-  getTableList(): Promise<Item[]>;
+  getTableList(): Promise<ListItem[]>;
 }

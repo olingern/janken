@@ -1,8 +1,9 @@
 import { Box, Text, useApp, useInput } from 'ink';
 import SelectInput from 'ink-select-input';
-import { Item } from 'ink-select-input/build/SelectInput';
+
 import React, { useContext, useEffect, useReducer } from 'react';
 import { IDatabaseProvider } from 'src/providers/shared';
+import { ListItem } from 'src/types/ListItem';
 
 import { AppContext } from '../context';
 import { TableView } from '../table-view/TableView';
@@ -128,7 +129,7 @@ export const DatabaseView: React.FC = () => {
    */
   useEffect(() => {
     const fetchTables = async () => {
-      let tables: Item[] = [];
+      let tables: ListItem[] = [];
 
       if (!state.databaseProvider || state.databaseProvider === null) {
         return;
@@ -140,7 +141,6 @@ export const DatabaseView: React.FC = () => {
         // TODO: Provide error display area inside of App. Right now,
         //       error will not be logged unless we exit the app.
         exit();
-        throw new Error(e);
       }
 
       dbViewDispatch({ type: 'SET_TABLES', payload: tables });
@@ -250,7 +250,7 @@ export const DatabaseView: React.FC = () => {
    *
    * @param item
    */
-  const handleSelect = async (item: Item) => {
+  const handleSelect = async (item: ListItem) => {
     const tableQuery = await state.databaseProvider!.getAllFromTable(item.label, 0);
 
     const selectedTable = {

@@ -1,5 +1,5 @@
-import { Item } from 'ink-select-input/build/SelectInput';
 import React, { createContext, Dispatch, useReducer } from 'react';
+import { ListItem } from 'src/types/ListItem';
 
 import { IDatabaseProvider } from '../providers/shared';
 import { DatabaseView } from './database-view/DatabaseView';
@@ -14,7 +14,7 @@ export enum APP_ACTIONS {
   SELECT_CONNECTION = 'SELECT_CONNECTION',
 }
 
-export interface ISelectInput extends Item {
+export interface ISelectInput extends ListItem {
   idx: number;
   value: string;
 }
